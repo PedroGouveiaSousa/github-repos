@@ -1,19 +1,19 @@
-import { NavLink } from "@solidjs/router";
-
+import { A } from "@solidjs/router";
+import { savedRepos } from "@/pages/SavedRepos";
 function Nav() {
 
     return (
         <nav class="nav">
             <div class="field is-grouped">
                 <div class="control">
-                    <NavLink href="/" end class="button" activeClass="is-success">
+                    <A href="/" end class="button" activeClass="is-success">
                         Home
-                    </NavLink>
+                    </A>
                 </div>
                 <div class="control">
-                    <NavLink href="/saved" class="button" activeClass="is-success">
-                        Saved
-                    </NavLink>
+                    <A href="/saved" class="button" activeClass="is-success">
+                        Saved ~ {savedRepos().length}
+                    </A>
                 </div>
             </div>
         </nav>

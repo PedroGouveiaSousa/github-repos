@@ -1,6 +1,5 @@
 import { savedRepos, setSavedRepos } from "@/pages/SavedRepos";
 
-
 const RepoCard = ({ repo }) => {
 
     const saveRepo = () => {
@@ -9,7 +8,7 @@ const RepoCard = ({ repo }) => {
 
     const unsaveRepo = () => setSavedRepos(savedRepos().filter(savedRepo => savedRepo !== repo))
 
-    const repoIsSaved = () => savedRepos().some(savedRepos => savedRepos === repo)
+    const repoIsSaved = () => savedRepos().some(savedRepos => savedRepos.id === repo.id)
 
     return (
         <div class="card mb-2">
@@ -30,7 +29,7 @@ const RepoCard = ({ repo }) => {
                 </div>
             </div>
             <footer class="card-footer">
-                <a href="#" class="card-footer-item">
+                <a class="card-footer-item">
                     <Show when={!repoIsSaved()}>
                         <button
                             class="button is-fullwidth is-success"

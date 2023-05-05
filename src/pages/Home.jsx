@@ -32,10 +32,8 @@ function Home() {
                 </div>
             </div>
             <h3 class="subtitle">GitHub for {username()}</h3>
-
             <Show when={repos.loading}>
                 <progress class="progress is-small is-primary" max="100"></progress>
-                {repos.error}
             </Show>
             <Show when={repos.error}>
                 <div class="notification">

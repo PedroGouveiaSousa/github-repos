@@ -3,10 +3,11 @@ import { savedRepos, setSavedRepos } from "@/pages/SavedRepos";
 const RepoCard = ({ repo }) => {
 
     const saveRepo = () => {
-        setSavedRepos(repos => [repo, ...repos])
+        setSavedRepos(repos => [repo, ...repos]);
+        return true;
     }
 
-    const unsaveRepo = () => setSavedRepos(savedRepos().filter(savedRepo => savedRepo !== repo))
+    const unsaveRepo = () => setSavedRepos(savedRepos().filter(savedRepo => savedRepo.id !== repo.id))
 
     const repoIsSaved = () => savedRepos().some(savedRepos => savedRepos.id === repo.id)
 

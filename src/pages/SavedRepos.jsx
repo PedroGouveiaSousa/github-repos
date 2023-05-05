@@ -7,7 +7,6 @@ const [savedRepos, setSavedRepos] = createSignal(JSON.parse(localStorage.getItem
 function SavedRepos() {
     return (
         <>
-            <h1>Your saved Repos</h1>
             <For each={savedRepos()}>
                 {repo => <RepoCard repo={repo} />}
             </For>

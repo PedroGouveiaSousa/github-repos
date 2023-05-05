@@ -11,7 +11,7 @@ const RepoCard = ({ repo }) => {
     const repoIsSaved = () => savedRepos().some(savedRepos => savedRepos.id === repo.id)
 
     return (
-        <div class="card mb-2">
+        <div class="card mb-2 mt-2">
             <div class="card-header">
                 <div class="card-header-title">{repo.name}</div>
                 <div class="card-header-icon">&#11088;{repo.stargazers_count}</div>

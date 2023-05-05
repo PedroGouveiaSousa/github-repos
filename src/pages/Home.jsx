@@ -1,5 +1,6 @@
 import { refetch, repos, setUsername, username } from "@/App";
 import RepoCard from "@/components/RepoCard";
+import { Show } from "solid-js";
 
 function Home() {
 
@@ -31,17 +32,21 @@ function Home() {
                 </div>
             </div>
             <h3 class="subtitle">GitHub for {username()}</h3>
+
             <Show when={repos.loading}>
                 <progress class="progress is-small is-primary" max="100"></progress>
+                {repos.error}
             </Show>
-            <Show when={!repos.loading && !repos()?.length}>
+            <Show when={repos.error}>
                 <div class="notification">
                     No repos for {username()}
                 </div>
             </Show>
-            <For each={repos()}>
-                {repo => <RepoCard repo={repo} />}
-            </For>
+            <Show when={!repos.error && !repos.loading}>
+                <For each={repos()}>
+                    {repo => <RepoCard repo={repo} />}
+                </For>
+            </Show>
         </div>
     );
 }
